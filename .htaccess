@@ -1,0 +1,25 @@
+# [migrado desde: settings/urls.py — configuración de routing Django]
+# Rewrite rules para Apache — equivalente al URL dispatcher de Django
+# Redirige todas las peticiones a index.php (Front Controller Pattern)
+
+Options -Indexes
+Options +FollowSymLinks
+
+RewriteEngine On
+
+# Acceso directo a archivos estáticos en /public/ — sin pasar por PHP
+RewriteCond %{REQUEST_URI} ^/public/ [NC]
+RewriteRule ^ - [L]
+
+# Acceso directo a archivos estáticos en /uploads/ — sin pasar por PHP
+RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
+RewriteRule ^ - [L]
+
+# Si el archivo o directorio existe físicamente, servirlo directamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirigir todo lo demás a index.php (enrutador principal)
+# Equivalente a ROOT_URLCONF = 'settings.urls' en Django
+RewriteRule ^(.*)$ index.php [QSA,L]
