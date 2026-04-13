@@ -83,13 +83,30 @@
     </footer>
 
     <script>
-        // Nav scroll effect
+        // Nav scroll effect — Efecto de scroll en la navegación
         const nav = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // Scroll reveal
+        // Mobile menu toggle — Lógica del menú móvil (hamburguesa)
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('mobile-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link — Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('mobile-active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll reveal — Animaciones al hacer scroll
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

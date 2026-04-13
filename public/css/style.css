@@ -156,6 +156,37 @@ img {
     border-bottom: 1px solid transparent;
 }
 
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-hamburger span {
+    width: 30px;
+    height: 2px;
+    background-color: var(--bg-white);
+    transition: var(--transition);
+}
+
+.nav.scrolled .nav-hamburger span {
+    background-color: var(--text-main);
+}
+
+.nav.mobile-active .nav-hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav.mobile-active .nav-hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav.mobile-active .nav-hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 .nav.scrolled {
     background-color: rgba(246, 239, 232, 0.95);
     backdrop-filter: blur(10px);
@@ -816,29 +847,118 @@ img {
 /* =========================================
    MOBILE RESPONSIVE TWEAKS
    ========================================= */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 4.5rem; }
+}
+
 @media (max-width: 900px) {
     .testimonios-grid { grid-template-columns: 1fr; }
     .cta-inner h2 { font-size: 2.8rem; }
+    .nosotros-text h2 { font-size: 3.5rem; }
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 3.5rem; }
-    .hero-stats { flex-wrap: wrap; gap: 2rem; justify-content: flex-start; }
-    .stat-item { flex: 1 1 40%; text-align: left; }
-    .valores-grid, .servicios-grid, .footer-grid {
-        grid-template-columns: 1fr;
-    }
-    .servicios-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    .mision-vision-grid {
-        flex-direction: column;
-    }
+    /* Base & Layout */
+    body { font-size: 1.1rem; }
+    h2 { font-size: 2.8rem !important; }
+    section { padding: 4rem 5% !important; }
+
+    /* Nav */
     .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--bg-white);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: 0.5s ease;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 2rem;
+    }
+    .nav-links.active {
+        right: 0;
+    }
+    .nav-links a {
+        color: var(--text-main) !important;
+        font-size: 1.5rem;
+    }
+    .nav-hamburger {
+        display: flex;
+    }
+    
+    /* Hero */
+    .hero {
+        height: auto;
+        min-height: auto;
+        padding: 100px 5% 40px;
+        display: block;
+    }
+    .hero h1 { 
+        font-size: 2.2rem; 
+        line-height: 1.2;
+    }
+    .hero h1 br {
         display: none;
     }
+    .hero-location-badge {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        margin-bottom: 1rem;
+    }
+    .hero-content {
+        margin-top: 0;
+        text-align: center;
+    }
+    .hero p.hero-desc {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .hero-stats {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 1.5rem;
+        background: rgba(45, 38, 32, 0.98);
+        margin-top: 2rem;
+        border-radius: var(--radius-md);
+        bottom: auto;
+        left: auto;
+        width: 100%;
+    }
+    .stat-item { 
+        padding: 5px;
+    }
+    .stat-num { font-size: 1.5rem; }
+    .stat-label { font-size: 0.75rem; }
+    .hero-scroll { display: none; }
+
+    /* Forms */
+    .form-row { grid-template-columns: 1fr; }
+    
+    /* Grids */
+    .valores-grid, .servicios-grid, .footer-grid, .mision-vision-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nosotros-section { gap: 2rem; }
+}
+
+@media (max-width: 480px) {
+    .nav { padding: 10px 5%; }
+    .nav-logo-box { padding: 4px 10px; }
+    .nav-logo-box span.main { font-size: 0.85rem; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-ghost { width: 100%; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
 }
 
 /* =========================================
