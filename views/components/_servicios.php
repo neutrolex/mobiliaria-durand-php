@@ -1,4 +1,5 @@
-<?php // [migrado desde: web/templates/web/components/_servicios.html] ?>
+<?php // [migrado desde: web/templates/web/components/_servicios.html] 
+?>
 <!-- ==================== SERVICIOS ==================== -->
 <section class="servicios-section" id="servicios">
     <div class="servicios-header reveal">
@@ -16,7 +17,7 @@
         <!-- Servicio 1 -->
         <div class="servicio-card reveal reveal-delay-1">
             <!-- Equivalente a: {% static 'web/img/...' %} -->
-            <img src="<?= staticUrl('img/media__1774714574166.jpg') ?>" alt="Equipamiento Corporativo" class="srv-img">
+            <img src="<?= staticUrl('img/media__1774714532609.png') ?>" alt="Equipamiento Corporativo" class="srv-img">
             <div class="srv-content">
                 <div class="srv-title-row">
                     <div class="srv-icon"><svg viewBox="0 0 24 24">

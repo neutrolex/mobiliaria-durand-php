@@ -1,9 +1,10 @@
-<?php // [migrado desde: web/templates/web/components/_hero.html] ?>
+<?php // [migrado desde: web/templates/web/components/_hero.html] 
+?>
 <!-- ==================== HERO ==================== -->
 <section class="hero">
     <!-- Equivalente a: {% static 'web/img/media__...' %} -->
     <div class="hero-bg"
-        style="background-image: url(<?= staticUrl('img/media__1774714532609.png') ?>); background-size: cover; background-position: center;">
+        style="background-image: url(<?= staticUrl('img/media__1774714574166.jpg') ?>); background-size: cover; background-position: center;">
     </div>
     <div class="hero-content">
         <span class="hero-location-badge">📍 Lima, Perú — Tu ambiente, hecho realidad</span>
