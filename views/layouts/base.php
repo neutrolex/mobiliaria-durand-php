@@ -28,7 +28,7 @@
     <!-- NAV -->
     <nav class="nav" id="mainNav">
         <!-- Equivalente a: {% url 'home' %} -->
-        <a href="<?= url('home') ?>" class="nav-logo">
+        <a href="<?= url('home') ?>" class="nav-logo" target="_blank" rel="noopener noreferrer">
             <div class="nav-logo-box">
                 <span class="main">MOBILIARIA DURAND S.A.C</span>
             </div>
@@ -40,16 +40,16 @@
                 <p>Equipamiento de alta calidad</p>
             </div>
 
-            <li><a href="<?= url('home') ?>">Inicio</a></li>
-            <li><a href="<?= url('home') ?>#nosotros">Nosotros</a></li>
-            <li><a href="<?= url('home') ?>#servicios">Servicios</a></li>
-            <li><a href="<?= url('contacto') ?>" class="btn-nav">📞 Contáctanos</a></li>
+            <li><a href="<?= url('home') ?>" target="_blank" rel="noopener noreferrer">Inicio</a></li>
+            <li><a href="<?= url('home') ?>#nosotros" target="_blank" rel="noopener noreferrer">Nosotros</a></li>
+            <li><a href="<?= url('home') ?>#servicios" target="_blank" rel="noopener noreferrer">Servicios</a></li>
+            <li><a href="<?= url('contacto') ?>" class="btn-nav" target="_blank" rel="noopener noreferrer">📞 Contáctanos</a></li>
 
             <!-- Mobile Menu Footer -->
             <div class="nav-mobile-footer">
                 <p>📍 Lima, Perú</p>
                 <div class="nav-mobile-social">
-                    <a href="https://www.facebook.com/MOBILIARIADURAND">Facebook</a>
+                    <a href="https://www.facebook.com/MOBILIARIADURAND" target="_blank" rel="noopener noreferrer">Facebook</a>
                 </div>
             </div>
         </ul>
@@ -71,9 +71,9 @@
             </div>
             <div class="footer-col">
                 <h4>Navegación</h4>
-                <a href="<?= url('home') ?>">Inicio</a>
-                <a href="<?= url('home') ?>#nosotros">Nosotros</a>
-                <a href="<?= url('home') ?>#servicios">Servicios</a>
+                <a href="<?= url('home') ?>" target="_blank" rel="noopener noreferrer">Inicio</a>
+                <a href="<?= url('home') ?>#nosotros" target="_blank" rel="noopener noreferrer">Nosotros</a>
+                <a href="<?= url('home') ?>#servicios" target="_blank" rel="noopener noreferrer">Servicios</a>
             </div>
             <div class="footer-col">
                 <h4>Servicios</h4>
@@ -91,7 +91,7 @@
         <div class="footer-bottom">
             <span>© 2026 Mobiliaria Durand SAC. Todos los derechos reservados.</span>
             <div class="social-links">
-                <a href="https://www.facebook.com/MOBILIARIADURAND" class="social-link">Facebook</a>
+                <a href="https://www.facebook.com/MOBILIARIADURAND" class="social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
         </div>
     </footer>
@@ -126,6 +126,14 @@
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
+
+        // Forzar apertura en nueva pestaña para todos los enlaces (según requerimiento)
+        document.querySelectorAll('a').forEach(link => {
+            link.setAttribute('target', '_blank');
+            if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
     </script>
 
     <!-- Equivalente a: {% block extra_js %}{% endblock %} -->

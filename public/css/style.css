@@ -245,6 +245,11 @@
         align-items: center;
     }
 
+    .nav-mobile-header,
+    .nav-mobile-footer {
+        display: none;
+    }
+
     .nav-links a {
         color: var(--bg-white);
         font-size: 0.95rem;
@@ -985,6 +990,7 @@
         }
 
         .nav-mobile-header {
+            display: block;
             margin-bottom: 2rem;
             text-align: center;
         }
@@ -1005,6 +1011,7 @@
         }
 
         .nav-mobile-footer {
+            display: block;
             margin-top: 3rem;
             text-align: center;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
