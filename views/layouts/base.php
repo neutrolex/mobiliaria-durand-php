@@ -34,10 +34,24 @@
             </div>
         </a>
         <ul class="nav-links">
+            <!-- Mobile Menu Header -->
+            <div class="nav-mobile-header">
+                <span class="logo-text">Mobiliaria Durand</span>
+                <p>Equipamiento de alta calidad</p>
+            </div>
+
             <li><a href="<?= url('home') ?>">Inicio</a></li>
             <li><a href="<?= url('home') ?>#nosotros">Nosotros</a></li>
             <li><a href="<?= url('home') ?>#servicios">Servicios</a></li>
             <li><a href="<?= url('contacto') ?>" class="btn-nav">📞 Contáctanos</a></li>
+
+            <!-- Mobile Menu Footer -->
+            <div class="nav-mobile-footer">
+                <p>📍 Lima, Perú</p>
+                <div class="nav-mobile-social">
+                    <a href="https://www.facebook.com/MOBILIARIADURAND">Facebook</a>
+                </div>
+            </div>
         </ul>
         <div class="nav-hamburger" id="hamburger">
             <span></span><span></span><span></span>
