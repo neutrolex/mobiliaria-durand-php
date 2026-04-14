@@ -32,7 +32,7 @@ date_default_timezone_set('America/Lima');
 
 // ===================== RUTAS BASE =====================
 define('BASE_PATH', __DIR__);
-define('BASE_URL', '/mobiliaria-durand');    // Se agrega el nombre de la carpeta para enrutamiento correcto
+define('BASE_URL', '');    // Vacío para hosting en la raíz del dominio
 
 // ===================== ARCHIVOS ESTÁTICOS =====================
 define('STATIC_URL', BASE_URL . '/public');
