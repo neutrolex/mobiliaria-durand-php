@@ -954,11 +954,13 @@ img {
 @media (max-width: 480px) {
     .nav { padding: 10px 5%; }
     .nav-logo-box { padding: 4px 10px; }
-    .nav-logo-box span.main { font-size: 0.85rem; }
-    .hero h1 { font-size: 1.8rem; }
+    .nav-logo-box span.main { font-size: 0.8rem; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero-desc { font-size: 0.9rem !important; }
     .hero-actions { flex-direction: column; }
-    .btn-primary, .btn-ghost { width: 100%; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .btn-primary, .btn-ghost { width: 100%; padding: 12px 20px; font-size: 1rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-num { font-size: 1.3rem; }
 }
 
 /* =========================================

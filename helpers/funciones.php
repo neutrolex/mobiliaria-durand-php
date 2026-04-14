@@ -118,12 +118,14 @@ function url(string $nombre, string $parametro = ''): string
 // =======================================================
 
 /**
- * Retorna la URL de un archivo estático
- * Equivalente a: {% static 'web/css/style.css' %}
+ * Retorna la URL de un archivo estático con control de versiones (cache busting)
+ * [implementación custom: añade ?v=timestamp para refrescar cache en navegadores]
  */
 function staticUrl(string $ruta): string
 {
-    return STATIC_URL . '/' . ltrim($ruta, '/');
+    $fullPath = BASE_PATH . '/public/' . ltrim($ruta, '/');
+    $version = file_exists($fullPath) ? filemtime($fullPath) : '1.0';
+    return STATIC_URL . '/' . ltrim($ruta, '/') . '?v=' . $version;
 }
 
 // =======================================================
